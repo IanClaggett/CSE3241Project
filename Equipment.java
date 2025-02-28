@@ -3,6 +3,7 @@ import java.util.Map;
 import java.util.Arrays;
 import java.util.Scanner;
 
+//Author: Ian Claggett
 public class Equipment {
 
     public Map<Integer, String[]> equipment = new HashMap<>();

@@ -3,6 +3,7 @@ import java.util.Map;
 import java.util.Arrays;
 import java.util.Scanner;
 
+//Author: Ian Claggett
 public class CommunityMember {
 
     public Map<Integer, String[]> community = new HashMap<>();
