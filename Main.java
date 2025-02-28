@@ -5,6 +5,7 @@ class Main {
         Scanner input = new Scanner(System.in);
         boolean exit = false;
         CommunityMember memberTable = new CommunityMember();
+        Equipment equipmentTable = new Equipment();
         while (!exit) {
             System.out.println("-------------------------------------------");
             System.out.println("Select a table to view/edit:");
@@ -19,8 +20,7 @@ class Main {
                     memberTable.communityMembers(input);
                     break;
                 case "1":
-                    System.out.println("emp");
-                    System.out.println();
+                    equipmentTable.equipmentItems(input);
                     break;
                 case "q":
                     exit = !exit;

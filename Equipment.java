@@ -7,6 +7,8 @@ public class Equipment {
 
     public Map<Integer, String[]> equipment = new HashMap<>();
     public int count = 0;
+    public Map<Integer, Integer> rents = new HashMap<>();
+    public Map<Integer, Integer> deliveries = new HashMap<>();
 
     public void equipmentItems(Scanner input) {
         boolean exit = false;
@@ -18,6 +20,10 @@ public class Equipment {
             System.out.println("[1] add equipment");
             System.out.println("[2] delete equipment");
             System.out.println("[3] search equipment");
+            System.out.println("[4] rent equipment");
+            System.out.println("[5] return equipment");
+            System.out.println("[6] equipment delivery");
+            System.out.println("[7] equipment scheduled return");
             System.out.println("[r] return");
             System.out
                     .println("--------------------------------------------------------------------------------------");
@@ -34,6 +40,18 @@ public class Equipment {
                     break;
                 case "3":
                     searchMember(input);
+                    break;
+                case "4":
+                    rentEquipment(input);
+                    break;
+                case "5":
+                    returnEquipment(input);
+                    break;
+                case "6":
+                    deliverEquipment(input);
+                    break;
+                case "7":
+                    returnEquipment(input);
                     break;
                 case "r":
                     exit = !exit;
@@ -116,5 +134,37 @@ public class Equipment {
         } else {
             System.out.println("Invalid index, returning to menu");
         }
+    }
+
+    public void rentEquipment(Scanner input) {
+        System.out.println("Enter the userID of the renter");
+        int userID = Integer.parseInt(input.nextLine());
+        System.out.println("Enter the equipmentID of the renter");
+        int equipmentID = Integer.parseInt(input.nextLine());
+        rents.put(userID, equipmentID);
+        System.out.println("Item has been rented");
+    }
+
+    public void returnEquipment(Scanner input) {
+        System.out.println("Enter the userID of the renter");
+        int userID = Integer.parseInt(input.nextLine());
+        rents.remove(userID);
+        System.out.println("Item has been returned");
+    }
+
+    public void deliverEquipment(Scanner input) {
+        System.out.println("Enter the ID/time of the delivery");
+        int deliveryID = Integer.parseInt(input.nextLine());
+        System.out.println("Enter the drone for delivery");
+        int droneID = Integer.parseInt(input.nextLine());
+        deliveries.put(deliveryID, droneID);
+        System.out.println("Item has been scheduled for delivery");
+    }
+
+    public void collectEquipment(Scanner input) {
+        System.out.println("Enter the ID.time of the delivery");
+        int deliveryID = Integer.parseInt(input.nextLine());
+        deliveries.remove(deliveryID);
+        System.out.println("Item has been scheduled for returnal");
     }
 }
